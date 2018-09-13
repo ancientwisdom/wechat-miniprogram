@@ -1,0 +1,23 @@
+<view class="container">
+  <button bindtap="showMenu" size="mini" class="menu-btn">目录</button>
+  <view class="poem {{isLoading ? 'isLoading' : 'no'}}">
+    <text class="title">{{poem.title}}</text>
+    <view class="content">
+      <text>{{poem.content}}</text>
+    </view>
+    <text class="chapter">{{poem.section}}-{{poem.chapter}}</text>
+  </view>
+  <view class="sider {{show?'show':''}}">
+    <view class="sider-wrap">
+      <view class="sider-header">
+        <text class="header-label">目录</text>
+        <!-- <button bindtap="closeMenu" size="mini" class="close-btn">关闭</button> -->
+      </view>
+      <scroll-view scroll-y="{{true}}" class="sider-list">
+        <view bindtap="getPoemTap" data-title="{{item.title}}" class="list-item" wx:for="{{list}}" wx:key="{{index}}">
+          {{item.title}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
